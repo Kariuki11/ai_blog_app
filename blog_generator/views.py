@@ -11,28 +11,28 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
     return render(request, 'index.html')
 
-# @csrf_exempt
-# def generate_blog(request):
-#     if request.method == 'POST':
-#         try:
-#             data = json.loads(request.body)
-#             yt_link = data['link']
-#             return JsonResponse({'content': yt_link})
-#         except(KeyError, json.JSONDecodeError):
-#             return JsonResponse({'error': 'Invalid data sent'}, status=400)
+@csrf_exempt
+def generate_blog(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            yt_link = data['link']
+            return JsonResponse({'content': yt_link})
+        except(KeyError, json.JSONDecodeError):
+            return JsonResponse({'error': 'Invalid data sent'}, status=400)
         
-#         #get yt title
+        #get yt title
         
-#         #get transcript
+        #get transcript
         
-#         #Use OpenAI to generate the blog
+        #Use OpenAI to generate the blog
         
-#         #save blog article to data base
+        #save blog article to data base
         
-#         #return blog article as a response.
+        #return blog article as a response.
         
-#     else:
-#         return JsonResponse({'error': 'Invalid method'}, status=405)
+    else:
+        return JsonResponse({'error': 'Invalid method'}, status=405)
 
 def user_login(request):
     if request.method == 'POST':
