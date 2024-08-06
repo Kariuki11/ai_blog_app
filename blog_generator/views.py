@@ -42,4 +42,5 @@ def user_signup(request):
     return render(request, 'signup.html')
 
 def user_logout(request):
-    return render(request, 'signup.html')
+    logout(request)
+    return redirect('/')
