@@ -90,7 +90,16 @@ def get_transcription(link):
     return transcriber.text
 
 
-def generate_blog_from_transcription(transcription)
+def generate_blog_from_transcription(transcription):
+    gemini.api_key = "AIzaSyB2rrGuPKXfyQHvATyyH67LJsyWcPTcUig"
+    
+    prompt = f"Based on the following transaction from a YouTube video, write a comprehensive blog article, write it based the transcript, but dont make it look like a youtube video, make it look like a proper blog article:\n\n{transcription}\n\nArticle:"
+    
+    response = gemini.Completion.create(
+        model="text-davinci-003",
+        prompt=prompt,
+        max_tokens=2048,
+    )
 
 def user_login(request):
     if request.method == 'POST':
