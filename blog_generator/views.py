@@ -116,6 +116,9 @@ def generate_blog_from_transcription(transcription):
     return generated_content
 
 
+def blog_list(request):
+    pass
+
 
 def user_login(request):
     if request.method == 'POST':
