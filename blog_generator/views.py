@@ -89,7 +89,7 @@ def get_transcription(link):
     transcriber = aai.Transcriber()
     transcript = transcriber.transcribe(audio_file)
     
-    return transcriber.text
+    return transcript.text
 
 
 def generate_blog_from_transcription(transcription):
