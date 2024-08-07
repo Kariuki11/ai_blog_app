@@ -78,6 +78,7 @@ def download_audio(link):
 
 def get_transcription(link):
     audio_file = download_audio(link)
+    aai.settings.api_key = ""
     
 
 def user_login(request):
