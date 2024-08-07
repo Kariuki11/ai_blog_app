@@ -1,4 +1,5 @@
 from django.db import models
 
 # Create your models here.
-class BlogPost()
+class BlogPost(models.Model):
+    user = 
