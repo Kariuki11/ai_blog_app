@@ -58,11 +58,13 @@ def generate_blog(request):
             return JsonResponse({'error': "Failed to get transcript"}, status=500)
         
         #Use OpenAI to generate the blog
-        
+        blog_content = generate_blog_from_transcription(treanscription)
+        if not blog_content:
+            return JsonResponse({'error': "Failed to generate blog"}, status=500)
         # save blog article to database.
         
         #Return blog aricle as a response.
-        
+        return JsonResponse({'content': blog_content})
     else:
         return JsonResponse({'error': 'Invalid method'}, status=405)
         
@@ -100,6 +102,10 @@ def generate_blog_from_transcription(transcription):
         prompt=prompt,
         max_tokens=2048,
     )
+    
+    generated_content = response.choices[0].text.strip()
+    
+    return generated_content
 
 def user_login(request):
     if request.method == 'POST':
