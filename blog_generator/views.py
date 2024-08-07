@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from pytube import YouTube
 import os
 import assemblyai as aai
+import gemini
 
 # Create your views here.
 @login_required
