@@ -74,6 +74,7 @@ def download_audio(link):
     new_file = base + '.mp3'
     os.rename(out_file, new_file)
     return new_file
+
 def get_transcription(link):
     #audio_file = pass
     pass
