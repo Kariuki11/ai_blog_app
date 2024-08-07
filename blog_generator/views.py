@@ -76,8 +76,8 @@ def download_audio(link):
     return new_file
 
 def get_transcription(link):
-    #audio_file = pass
-    pass
+    audio_file = download_audio(link)
+    
 
 def user_login(request):
     if request.method == 'POST':
