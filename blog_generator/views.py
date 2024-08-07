@@ -87,7 +87,9 @@ def get_transcription(link):
     transcript = transcriber.transcribe(audio_file)
     
     return transcriber.text
-    
+
+
+def generate_blog_from_transcription(transcription)
 
 def user_login(request):
     if request.method == 'POST':
