@@ -70,7 +70,7 @@ def yt_title(link):
 def download_audio(link):
     yt = YouTube(link)
     yt.streams.filter(only_audio=True).first()
-    out_file = video.download(output_path=settings.MEDIA_ROOT) # type: ignore
+    out_file = video.download(output_path=settings.MEDIA_ROOT)
     base, ext = os.path.splitext(out_file)
     new_file = base + '.mp3'
     os.rename(out_file, new_file)
