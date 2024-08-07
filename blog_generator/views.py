@@ -10,6 +10,7 @@ from pytube import YouTube
 import os
 import assemblyai as aai
 import gemini
+from .models import BlogPost
 
 # Create your views here.
 @login_required
@@ -62,6 +63,7 @@ def generate_blog(request):
         if not blog_content:
             return JsonResponse({'error': "Failed to generate blog"}, status=500)
         # save blog article to database.
+        new_blog_article = Blog
         
         #Return blog aricle as a response.
         return JsonResponse({'content': blog_content})
