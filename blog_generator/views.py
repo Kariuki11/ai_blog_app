@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+from pytube import YouTube
 
 # Create your views here.
 @login_required
@@ -46,6 +47,22 @@ def generate_blog(request):
 
         # get yt title
         title = yt_title(yt_link)
+        
+        # get transcript.
+        
+        #Use OpenAI to generate the blog
+        
+        # save blog article to database.
+        
+        #Return blog aricle as a response.
+        
+    else:
+        return JsonResponse({'error': 'Invalid method'}, status=405)
+        
+def yt_title(link):
+    yt = YouTube(link)
+    title = yt.title
+    return title
 
 def user_login(request):
     if request.method == 'POST':
