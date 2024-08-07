@@ -117,7 +117,8 @@ def generate_blog_from_transcription(transcription):
 
 
 def blog_list(request):
-    pass
+    blog_articles = BlogPost.objects.filter(user=request.user)
+    return render(request, "all-blogs.html", {'blog_articles': blog_articles})
 
 
 def user_login(request):
