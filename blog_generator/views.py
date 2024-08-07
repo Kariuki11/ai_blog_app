@@ -120,6 +120,12 @@ def blog_list(request):
     blog_articles = BlogPost.objects.filter(user=request.user)
     return render(request, "all-blogs.html", {'blog_articles': blog_articles})
 
+def blog_details(request, pk):
+    blog_article_detail = BlogPost.objects.get(id=pk)
+    if request.user == blog_article_detail.user:
+        return render(request, 'blog-details.html', {'blog_article_detail': blog_article_detail})
+    else:
+        return redirect('/')
 
 def user_login(request):
     if request.method == 'POST':

@@ -25,13 +25,13 @@
             <section>
                 <h2 class="text-xl mb-4 font-semibold">Blog Post Details</h2>
                 <div class="border border-gray-300 p-4 rounded-lg">
-                    <h3 class="text-lg font-semibold">Blog Post Title</h3>
-                    <p class="text-gray-700">This is the content</p>
+                    <h3 class="text-lg font-semibold">{{blog_article_detail.youtube_title}}</h3>
+                    <p class="text-gray-700">{{blog_article_detail.generated_content}}</p>
                     <hr class="my-4 border-gray-300">
-                    <h4 class="text-lg font-semibold">Youtube Title</h4>
+                    <h4 class="text-lg font-semibold">{{blog_article_detail.youtube_title}}</h4>
                     <p>Title of the associated Youtube video</p>
                     <h4 class="text-lg font-semibold mt-4">Youtube Link</h4>
-                    <a href="#" class="text-blue-600 hover:underline">https://www.youtube.com</a>
+                    <a href="{{blog_article_detail.youtube_link}}" class="text-blue-600 hover:underline">{{blog_article_detail.youtube_link}}</a>
                 </div>
             </section>
         </div>

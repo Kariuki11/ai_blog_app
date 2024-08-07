@@ -8,6 +8,7 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('generate_blog', views.generate_blog, name='generate-blog'),
     path('blog-list', views.blog-list, name='blog-list'),
+    path('blog-details/<int:pk>/', views.blog-details, name='blog-details'),
 ]
 
 
