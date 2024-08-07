@@ -29,7 +29,7 @@ def index(request):
         
 #         #get transcript
         
-#         #Use OpenAI to generate the blog
+#         #Use gemini to generate the blog
         
 #         #save blog article to data base
         
@@ -52,6 +52,9 @@ def generate_blog(request):
         title = yt_title(yt_link)
         
         # get transcript.
+        transcription = get_transcription(yt_link)
+        if not transcription:
+            return JsonResponse({'error': "Failed to get transcript"}, status=500)
         
         #Use OpenAI to generate the blog
         
@@ -78,7 +81,12 @@ def download_audio(link):
 
 def get_transcription(link):
     audio_file = download_audio(link)
-    aai.settings.api_key = ""
+    aai.settings.api_key = "0e7f4fef0c264e569363fb4993f62b18"
+    
+    transcriber = aai.Transcriber()
+    transcript = transcriber.transcribe(audio_file)
+    
+    return transcriber.text
     
 
 def user_login(request):

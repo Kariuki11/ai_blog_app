@@ -12,3 +12,5 @@ transcript = transcriber.transcribe("https://storage.googleapis.com/aai-web-samp
 print(transcript.text)
 
 0e7f4fef0c264e569363fb4993f62b18
+
+gemini = AIzaSyB2rrGuPKXfyQHvATyyH67LJsyWcPTcUig
