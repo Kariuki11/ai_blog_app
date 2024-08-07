@@ -115,6 +115,8 @@ def generate_blog_from_transcription(transcription):
     
     return generated_content
 
+
+
 def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
