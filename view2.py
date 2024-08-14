@@ -37,8 +37,9 @@ def generate_blog(request):
             if not transcription:
                 return JsonResponse({'error': "Failed to get transcript"}, status=500)
 
-            # Use OpenAI/Anthropic to generate the blog
+            # Use Anthropic to generate the blog
             blog_content = generate_blog_from_transcription(transcription)
+            print (blog_content)
             if not blog_content:
                 return JsonResponse({'error': "Failed to generate blog"}, status=500)
 
@@ -55,7 +56,9 @@ def generate_blog(request):
             return JsonResponse({'content': blog_content})
 
         except Exception as e:
+            
             print(f"Error during blog generation: {e}")
+            
             return JsonResponse({'error': 'An error occurred during blog generation'}, status=500)
     else:
         return JsonResponse({'error': 'Invalid method'}, status=405)
